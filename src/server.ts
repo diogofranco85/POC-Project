@@ -1,7 +1,9 @@
-import express, { Express } from "express";
+import * as express from "express";
+import { Express } from "express";
 import helmet from "helmet";
-import cors from 'cors';
+import * as cors from 'cors';
 import routes from './application/config/routes';
+import { createConnection } from 'typeorm'
 
 class Server {
     private readonly app: Express
@@ -9,6 +11,7 @@ class Server {
     constructor() {
         this.app = express();
         this.app.set('port', process.env.PORT || 3000);
+        this.connectDatabase();
         this.middleware();
         this.routes();
     }
@@ -33,10 +36,11 @@ class Server {
 
     private routes() {
         this.app.use(routes);
+        this.app.get('/health', (request, response) => response.json({ health: true }))
     }
 
     private connectDatabase() {
-        return ''
+        createConnection();
     }
 
 }

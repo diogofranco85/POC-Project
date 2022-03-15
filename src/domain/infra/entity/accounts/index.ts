@@ -1,18 +1,20 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, Double } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, JoinColumn, OneToOne } from "typeorm";
+import { Clients } from '../clients';
 
-@Entity()
+@Entity('accounts')
 export class Accounts extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
-    client_id: string;
+    @OneToOne(() => Clients)
+    @JoinColumn()
+    client_id: Clients;
 
-    @Column()
+    @Column({ type: 'char', length: 1 })
     moviment: string;
 
-    @Column()
+    @Column({ type: 'double' })
     value: Number;
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })

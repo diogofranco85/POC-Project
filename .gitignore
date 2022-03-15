@@ -4,3 +4,8 @@ node_modules/
 build/
 tmp/
 temp/
+coverage/
+ormlogs.log
+dist/
+./package-lock.json
+./yarn.lock

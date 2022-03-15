@@ -24,7 +24,7 @@ export class CreateAccountTable1645320292389 implements MigrationInterface {
                     {
                         name: "moviment",
                         type: 'char',
-
+                        width: 1,
                         isNullable: false
                     },
                     {

@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table, TableIndex } from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateClientTable1645320686645 implements MigrationInterface {
 
@@ -17,13 +17,16 @@ export class CreateClientTable1645320686645 implements MigrationInterface {
                     },
                     {
                         name: "name",
-                        type: 'varchar(50)',
+                        type: 'varchar',
+                        width: 50,
                         isNullable: false
                     },
                     {
                         name: "document",
-                        type: 'varchar(11)',
-                        isNullable: false
+                        type: 'varchar',
+                        width: 11,
+                        isNullable: false,
+                        isUnique: true
                     },
                     {
                         name: "created_at",

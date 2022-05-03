@@ -1,5 +1,5 @@
 # POC
-conceitos
-  solid
-  ddd
-  tdd
+* conceitos
+  ** solid
+  ** ddd
+  ** tdd
